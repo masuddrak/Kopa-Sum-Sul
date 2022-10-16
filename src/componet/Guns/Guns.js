@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import Gun from '../Gun/Gun';
 
-const Guns = () => {
+const Guns = ({addToCart}) => {
     const [guns,setGuns]=useState([])
+    
     useEffect(()=>{
         fetch('data.json')
         .then(res=>res.json())
         .then(data=>setGuns(data))
     },[])
+    
     return (
-        <div>
-            <h1 style={{"textAlign":'center',"marginTop":'50px'}}>All Guns <span style={{"color":'blue',}}>{guns.length}</span></h1>
+        <div className='row justify-content-md-center'>
+            <h1 style={{"textAlign":'center',"margin":'50px 0px'}}>All Guns <span style={{"color":'blue',}}>{guns.length}</span></h1>
             {guns.map(gun=><Gun
             key={gun.id}
             gun={gun}
+            addToCart={addToCart}
             ></Gun>)}
         </div>
     );
