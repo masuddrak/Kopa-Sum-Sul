@@ -1,10 +1,18 @@
 import './Navber.css'
-const Navber = ({openModal,cart}) => {
-    
+import { BsFillCartFill } from "react-icons/bs";
+const Navber = ({ openModal, cart }) => {
+
     return (
-        <div className='navber d-flex justify-content-between'>
-            <h1>Hello Kopa Sum</h1>
-            <button onClick={openModal}>Cart<sup>{cart.length}</sup></button>
+        <div className='navber '>
+            <div className='d-flex justify-content-between m-1'>
+                <div>
+                    <h1>Hello Kopa Sum</h1>
+                </div>
+                <div>
+                    <BsFillCartFill className='fs-2 ' onClick={openModal}></BsFillCartFill>
+                    <sup >{cart.length}</sup>
+                </div>
+            </div>
         </div>
     );
 };
